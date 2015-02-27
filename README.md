@@ -1,7 +1,7 @@
 # NCAA
 A stats gathering python module for the NCAA stats website.
 
-## Overall Goal
+## Goal(s)
 The goal of this project is to enable users to quickly and easily gather statistical data about various sports from the NCAA website.
 
 ## Current Status
