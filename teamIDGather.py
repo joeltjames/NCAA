@@ -1,5 +1,5 @@
 from scraperUtils import getSoup
-import mbbUtils
+import MBB
 from bs4 import BeautifulSoup
 from pprint import pformat
 

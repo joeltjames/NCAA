@@ -1,4 +1,4 @@
-import mbbUtils
+import MBB
 import scraperUtils
 
 class TeamNameError(Exception):
@@ -31,7 +31,7 @@ class Team(object):
         self.name = name
         self.ncaa_id = ncaa_id
         self.url = "http://stats.ncaa.org/team/index/%s?org_id=" + str(ncaa_id)
-        self.indiviualSeasons = mbbUtils.getSeasonsData(self)
+        self.indiviualSeasons = MBB.getSeasonsData(self)
         self.roster = list(reversed(sorted(self.indiviualSeasons)))[0] #.roster
 
 
