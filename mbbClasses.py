@@ -18,7 +18,7 @@ class TeamSeason(object):
         self.season_id = season_id
         self.ncaa_id = ncaa_id
         self.end_year = end_year
-        
+
     def __lt__(self,o):
         return self.end_year < o.end_year
 
@@ -50,5 +50,6 @@ class TeamSchedule(object):
     games = []
 
 class Game(object):
-    home_team = -1
-    away_team = -1
+    # -1 == away
+    # 1 == home
+    home_or_away = 0

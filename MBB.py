@@ -111,6 +111,7 @@ def getPlayerStats(roster, season_id, team_id):
 def getRoster(season_id, team_id):
     roster_url = getRosterUrl(season_id, team_id)
     soup = scraperUtils.getSoup(roster_url)
+    print(soup)
     table = soup.find("table", {"id" :"stat_grid"})
     roster = []
     for row in table.findAll("tr"):
@@ -216,7 +217,17 @@ def getSeasonStats(season):
     season.fouls = getInteger(offensive_totals[19])
 
 def getSchedule(season_id, team_id):
-    return "CAT"
+    schedule_url = getUrl(season_id, team_id)
+    soup = scraperUtils.getSoup(schedule_url)
+    table = soup.find("table", {"class" :"mytable"})
+    print(soup)
+    schedule = []
+    for row in table.findAll("tr"):        
+        if row.get('class',[''])[0] == 'grey_heading':
+            continue
+        cell_data = [x.find(text=True) for x in row.findAll("td")]
+        thisGame = MBB.Game()
+        thisGame.date = cell_data[0]
 
 def getSeasonData(season_id,team_id):
     this_season = mbbClasses.TeamSeason(season_id,team_id,getEndYear(season_id))
