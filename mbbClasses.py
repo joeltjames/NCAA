@@ -13,11 +13,12 @@ class Player(object):
     rest = ""
 
 class TeamSeason(object):
-    # a team stats for a single season
-    ncaa_id = -1
-    end_year = 1900
-    roster = []
-
+    # a team ifno for a single season
+    def __init__(self,season_id, ncaa_id, end_year):
+        self.season_id = season_id
+        self.ncaa_id = ncaa_id
+        self.end_year = end_year
+        
     def __lt__(self,o):
         return self.end_year < o.end_year
 
@@ -32,7 +33,7 @@ class Team(object):
         self.ncaa_id = ncaa_id
         self.url = "http://stats.ncaa.org/team/index/%s?org_id=" + str(ncaa_id)
         self.indiviualSeasons = MBB.getSeasonsData(self)
-        self.roster = list(reversed(sorted(self.indiviualSeasons)))[0] #.roster
+        self.roster = list(reversed(sorted(self.indiviualSeasons)))[0].roster
 
 
     def getUrl(self,season_id=None):
