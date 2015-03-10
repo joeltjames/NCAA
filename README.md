@@ -8,7 +8,7 @@ The goal of this project is to enable users to quickly and easily gather statist
 Currently, the project is being developed only for the NCAA men's basketball statistics, but I hope to expand to include other sports in the near future.
 
 ## Next Steps
-Continue expanding the MBB features. Next immediate step after fully functional MBB features is to add an API.
+Continue expanding the MBB features. Next immediate step after fully functional MBB features is to add an API. Also, need to store the information commonly accessed and only update it, rather than pull all information on every call (this will greatly increase speeds).
 
 
 ## Installation
